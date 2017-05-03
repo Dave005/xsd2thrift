@@ -118,17 +118,10 @@ public class ProtobufMarshaller implements IMarshaller {
 	}
 
 	private String getRequired(boolean required, boolean repeated) {
-		String res;
+		String res = "";
 
-		if (repeated) {
+		if (repeated) 
 			res = "repeated";
-		} else {
-			if (required) {
-				res = "required";
-			} else {
-				res = "optional";
-			}
-		}
 
 		return res;
 	}

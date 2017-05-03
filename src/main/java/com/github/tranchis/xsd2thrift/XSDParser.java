@@ -35,6 +35,8 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import javax.xml.parsers.SAXParserFactory;
+
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -137,7 +139,9 @@ public class XSDParser implements ErrorHandler {
 	public void parse() throws Exception {
 		XSOMParser parser;
 
-		parser = new XSOMParser();
+		 SAXParserFactory spf = SAXParserFactory.newInstance();
+		spf.setNamespaceAware(true);
+		parser = new XSOMParser(spf);
 		parser.setErrorHandler(this);
 		parser.parse(f);
 
