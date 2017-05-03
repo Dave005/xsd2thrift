@@ -315,13 +315,13 @@ public class XSDParser implements ErrorHandler {
 		os(en.getNamespace()).write(
 				marshaller.writeEnumHeader(enumValue).getBytes());
 		itg = en.iterator();
-		int enumOrder = 1;
+		int enumOrder = 0;
 
 		if (itg.hasNext()) {
 			while (itg.hasNext()) {
 				os(en.getNamespace()).write(
 						marshaller.writeEnumValue(enumOrder,
-								escape(en.getName() + "_" + itg.next()))
+								escape(itg.next()))
 								.getBytes());
 				enumOrder++;
 			}
